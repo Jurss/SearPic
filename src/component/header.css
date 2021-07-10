@@ -1,0 +1,46 @@
+@font-face {
+    font-family: Encode-light;
+    src: url('../fonts/static/EncodeSansSC/EncodeSansSC-Regular.ttf');
+}
+
+.head {
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "logo nav";
+    font-family: Encode-light;
+}
+
+.logo {
+    grid-area: logo;
+    margin-left: 3em;
+}
+
+.navBar {
+    grid-area: nav;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.navBar>li {
+    margin-top: 3em;
+    padding-right: 3em;
+}
+
+.navBar>li>p {
+    cursor: pointer;
+}
+
+.contenu {
+    display: none;
+}
+
+.activeContenu {
+    display: block;
+}
+
+.activeTabs {
+    color: #83b5a7;
+}
