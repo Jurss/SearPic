@@ -3,6 +3,11 @@
     src: url('../fonts/static/EncodeSansSC/EncodeSansSC-Regular.ttf');
 }
 
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf');
+}
+
 .head {
     height: 20vh;
     display: grid;
@@ -43,4 +48,8 @@
 
 .activeTabs {
     color: #83b5a7;
+}
+
+main {
+    overflow-x: hidden;
 }

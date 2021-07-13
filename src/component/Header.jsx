@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import Home from './Home';
 import './header.css'
 import logo from '../img/SearPic-logo.png';
+import Home from './Home';
+
+
 
 const Header = () => {
 
@@ -10,8 +12,9 @@ const Header = () => {
     const toggleTab = (i) =>{
         setToggleTabs(i);
     };
-
+      
     return (
+        <>
         <header className="head">
             <img className="logo" src={logo} alt="logo"></img>
             <nav>
@@ -21,19 +24,27 @@ const Header = () => {
                     <li className={toggleTabs === 3 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(3)}><p>Photographer</p></li>
                 </ul>
             </nav>
-
+        </header>
+        <main>
             <div className="contenuOnglets">
+                <article>
                 <div className={toggleTabs === 1 ? 'contenu activeContenu' : 'contenu'}>
                     <Home />
                 </div>
-                <div className={toggleTabs === 2 ? 'contenu activeContenu' : 'contenu'}>
-                    <h2>Test2</h2>
-                </div>
-                <div className={toggleTabs === 3 ? 'contenu activeContenu' : 'contenu'}>
-                    <h2>Test3</h2>
-                </div>
+                </article>
+                <article>
+                    <div className={toggleTabs === 2 ? 'contenu activeContenu' : 'contenu'}>
+                       
+                    </div>
+                </article>
+                <article>
+                    <div className={toggleTabs === 3 ? 'contenu activeContenu' : 'contenu'}>
+                        <h2>Test3</h2>
+                    </div>
+                </article>
             </div>
-        </header>
+        </main>
+        </>
     )
 };
 
