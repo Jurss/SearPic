@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './home.css';
 import glass from '../img/transparent-bg-+-shadow-designify.png';
+import leftArrow from '../img/left-arrow.png';
+import rightArrow from '../img/right-arrow.png';
 
 
 const Home = () => {
@@ -14,23 +16,27 @@ const Home = () => {
         setImage(event.target.value);
     };
 
+    console.log(result);
     
-    const handleSubmit = () => {
-        const url = "https://api.unsplash.com/search/photos?page="+ inProgress +"&per_page=5&query=" + image + "&client_id=" + clientId;
-
+    function handleSubmit(){
+        const url = "https://api.unsplash.com/search/photos?page="+ inProgress +"&per_page=30&query=" + image + "&client_id=" + clientId;
         axios.get(url).then((response) => {
             setResult(response.data.results);
-            console.log(response.data);
         });
     };
 
     const [inProgress, setinProgress] = useState(1);
 
-    const nextPage = () => {
-        setinProgress(inProgress + 1)
+    function nextPage(){
+        setinProgress(inProgress + 1);
+        handleSubmit();
     }
-    const prevPage = () => {
-        setinProgress(inProgress - 1)
+    function prevPage(){
+        if(inProgress > 1){
+            setinProgress(inProgress - 1);
+            handleSubmit();
+        }
+
     }
     return(
             <div className="app"> 
@@ -50,11 +56,16 @@ const Home = () => {
                             <p className="username"> Photo by {image.user.name}</p>
                         </div>
                     ))}
+
                 </div>
-                <div className="nextPrevButton">
-                        <button onClick={() => handleSubmit, prevPage } type="submit">Prev</button>
-                        <p>{inProgress}</p>
-                        <button onClick={() => handleSubmit, nextPage } type="submit">Next</button>
+                    <div className="nextPrevButton">
+                        {result.length !== 0 &&
+                        <>
+                                <button  onClick={prevPage} type="submit"><img className="arrow" src={leftArrow} alt="left Arrow" /></button>
+                                <p className="page">{inProgress > 0 ? inProgress : '1'}</p>
+                                <button onClick={nextPage} type="submit"><img className="arrow" src={rightArrow} alt="right Arrow" /></button>
+                        </>
+                        }
                     </div>
             </div>
     )

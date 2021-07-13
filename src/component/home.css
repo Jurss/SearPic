@@ -91,14 +91,29 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
+    height: 50px;
     justify-content: center;
+    align-items: center;
 }
 
 .nextPrevButton>button {
-    /* border: none;
+    border: none;
     background-image: none;
     background-color: transparent;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    box-shadow: none; */
+    box-shadow: none;
+}
+
+.arrow {
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+}
+
+.page {
+    font-size: 2rem;
+    color: #354b45;
+    margin-left: 5px;
+    margin-right: 5px;
 }
