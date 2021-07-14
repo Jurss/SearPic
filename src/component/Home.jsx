@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './home.css';
 import glass from '../img/transparent-bg-+-shadow-designify.png';
@@ -15,8 +15,6 @@ const Home = () => {
     const handleChange = (event) => {
         setImage(event.target.value);
     };
-
-    console.log(result);
     
     function handleSubmit(){
         const url = "https://api.unsplash.com/search/photos?page="+ inProgress +"&per_page=30&query=" + image + "&client_id=" + clientId;
@@ -28,16 +26,17 @@ const Home = () => {
     const [inProgress, setinProgress] = useState(1);
 
     function nextPage(){
-        setinProgress(inProgress + 1);
-        handleSubmit();
+        setinProgress( inProgress + 1);
+
     }
     function prevPage(){
         if(inProgress > 1){
             setinProgress(inProgress - 1);
-            handleSubmit();
         }
-
     }
+    useEffect(() => {
+        handleSubmit()
+    },[inProgress])
     return(
             <div className="app"> 
                 <div className="home">
