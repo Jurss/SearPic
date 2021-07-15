@@ -4,7 +4,7 @@ import './home.css';
 import glass from '../img/transparent-bg-+-shadow-designify.png';
 import leftArrow from '../img/left-arrow.png';
 import rightArrow from '../img/right-arrow.png';
-import downloadImg from '../img/file-removebg-preview.png';
+import downloadImg from '../img/download.png';
 
 
 
@@ -13,6 +13,9 @@ const Home = () => {
     const [image, setImage] = useState("");
     const clientId = "GcWAxrmZevZukPhphJOTcN-Dvz0U_yYaxaa48dP0BIc";
     const [result, setResult] = useState([]);
+    const [urlLink, setUrlLink] = useState('');
+    const [filename, setFilename] = useState('');
+    const[downloadReady, setDownloadReady] = useState(false);
     
     const handleChange = (event) => {
         setImage(event.target.value);
@@ -36,9 +39,41 @@ const Home = () => {
             setinProgress(inProgress - 1);
         }
     }
+
+    function download(link, filename) {
+        if(downloadReady === true){
+            axios({
+                url: link,
+                method: 'GET',
+                responseType: 'blob'
+            }).then((response) => {
+                        const url = window.URL
+                            .createObjectURL(new Blob([response.data]));
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.setAttribute('download', filename+'.jpg');
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                })
+                setDownloadReady(false)
+        }
+    }
+
+    function handleDownload(link, id){
+        setUrlLink(link);
+        setFilename(id);
+        setDownloadReady(true);
+    }
+
     useEffect(() => {
         handleSubmit()
     },[inProgress])
+
+    useEffect(() => {
+        download(urlLink, filename)
+    },[downloadReady])
+
     return(
             <div className="app"> 
                 <div className="home">
@@ -54,8 +89,8 @@ const Home = () => {
                     {result.map((image) => (
                         <div key={image.id} className="card">
                             <img src={image.urls.regular} />
+                            <button className="download" onClick={() => handleDownload(image.urls.full, image.id)} type="submit"><img src={downloadImg} alt="Download" /></button>
                             <p className="username"> Photo by {image.user.name}</p>
-                            <button className="download"><img src={downloadImg} alt="Download" /></button>
                         </div>
                     ))}
 

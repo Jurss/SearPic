@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import downloadImg from '../img/file-removebg-preview.png';
+import downloadImg from '../img/download.png';
 import './discover.css';
 
 const Discover = () => {
     const clientId = "GcWAxrmZevZukPhphJOTcN-Dvz0U_yYaxaa48dP0BIc";
     const [results, setResult] = useState([]);
+    const [urlLink, setUrlLink] = useState('');
+    const [filename, setFilename] = useState('');
+    const[downloadReady, setDownloadReady] = useState(false);
+
+    useEffect(() => {
+        download(urlLink, filename)
+    },[downloadReady])
+
 
     function handleSubmit(){
         const url = "https://api.unsplash.com/photos/random/?client_id="+ clientId +"&count=30";
@@ -14,6 +22,31 @@ const Discover = () => {
         });
     };
 
+    function download(link, filename) {
+        if(downloadReady === true){
+            axios({
+                url: link,
+                method: 'GET',
+                responseType: 'blob'
+            }).then((response) => {
+                        const url = window.URL
+                            .createObjectURL(new Blob([response.data]));
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.setAttribute('download', filename+'.jpg');
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                })
+                setDownloadReady(false)
+        }
+  }
+
+  function handleDownload(link, id){
+    setUrlLink(link);
+    setFilename(id);
+    setDownloadReady(true);
+  }
     return (
         <div>
             <div className="button">
@@ -22,9 +55,8 @@ const Discover = () => {
             <div className="result">
                 {results.map((result) => (
                     <div key={result.id} className="card">
-                        {console.log(result.links.download)}
                         <img className="image" src={result.urls.regular} alt=""></img>
-                        <button className="download"><img src={downloadImg} alt="Download" /></button>
+                        <button className="download" onClick={() => handleDownload(result.urls.full, result.id)} type="submit"><img src={downloadImg} alt="Download" /></button>
                         <p className="username">Photo by {result.user.name}</p>
                     </div>
                 ))} 
