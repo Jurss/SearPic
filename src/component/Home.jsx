@@ -15,6 +15,7 @@ const Home = () => {
     const [result, setResult] = useState([]);
     const [urlLink, setUrlLink] = useState('');
     const [filename, setFilename] = useState('');
+    const [trackdownload, setTrackDownload] = useState('');
     const[downloadReady, setDownloadReady] = useState(false);
     
     const handleChange = (event) => {
@@ -40,7 +41,7 @@ const Home = () => {
         }
     }
 
-    function download(link, filename) {
+    function download(link, filename, track) {
         if(downloadReady === true){
             axios({
                 url: link,
@@ -55,15 +56,24 @@ const Home = () => {
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
-                })
-                setDownloadReady(false)
+            })
+            setDownloadReady(false);
+            trackDownload(track);
         }
     }
 
-    function handleDownload(link, id){
+    function trackDownload(track){
+        axios({
+            url: track,
+            method: 'GET'
+        })
+    }
+
+    function handleDownload(link, id, track){
         setUrlLink(link);
         setFilename(id);
         setDownloadReady(true);
+        setTrackDownload(track);
     }
 
     useEffect(() => {
@@ -88,9 +98,10 @@ const Home = () => {
                 <div className="result">
                     {result.map((image) => (
                         <div key={image.id} className="card">
-                            <img src={image.urls.regular} />
-                            <button className="download" onClick={() => handleDownload(image.urls.full, image.id)} type="submit"><img src={downloadImg} alt="Download" /></button>
-                            <p className="username"> Photo by {image.user.name}</p>
+                            {console.log(image)}
+                            <img src={image.urls.regular}alt={image.alt_description} title={image.links.html}/>
+                            <button className="download" onClick={() => handleDownload(image.urls.full, image.id, image.links.download_location)} type="submit"><img src={downloadImg} alt="Download" /></button>
+                            <p className="username"> Photo by <u><i>{image.user.name}</i></u> On unsplash</p>
                         </div>
                     ))}
 

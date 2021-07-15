@@ -8,6 +8,7 @@ const Discover = () => {
     const [results, setResult] = useState([]);
     const [urlLink, setUrlLink] = useState('');
     const [filename, setFilename] = useState('');
+    const [trackdownload, setTrackDownload] = useState('');
     const[downloadReady, setDownloadReady] = useState(false);
 
     useEffect(() => {
@@ -22,7 +23,7 @@ const Discover = () => {
         });
     };
 
-    function download(link, filename) {
+    function download(link, filename,track) {
         if(downloadReady === true){
             axios({
                 url: link,
@@ -38,15 +39,24 @@ const Discover = () => {
                         link.click();
                         document.body.removeChild(link);
                 })
-                setDownloadReady(false)
+                setDownloadReady(false);
+                trackDownload(track);
         }
-  }
+    }
 
-  function handleDownload(link, id){
-    setUrlLink(link);
-    setFilename(id);
-    setDownloadReady(true);
-  }
+    function trackDownload(track){
+        axios({
+            url: track,
+            method: 'GET'
+        })
+    }
+
+    function handleDownload(link, id, track){
+        setUrlLink(link);
+        setFilename(id);
+        setDownloadReady(true);
+        setTrackDownload(track);
+    }
     return (
         <div>
             <div className="button">
@@ -55,8 +65,8 @@ const Discover = () => {
             <div className="result">
                 {results.map((result) => (
                     <div key={result.id} className="card">
-                        <img className="image" src={result.urls.regular} alt=""></img>
-                        <button className="download" onClick={() => handleDownload(result.urls.full, result.id)} type="submit"><img src={downloadImg} alt="Download" /></button>
+                        <img className="image" src={result.urls.regular} alt={result.alt_description}  title={result.links.html}></img>
+                        <button className="download" onClick={() => handleDownload(result.urls.full, result.id, result.links.download_location)} type="submit"><img src={downloadImg} alt="Download" /></button>
                         <p className="username">Photo by {result.user.name}</p>
                     </div>
                 ))} 
