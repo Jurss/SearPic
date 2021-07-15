@@ -1,0 +1,53 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: Encode-light;
+    src: url('../fonts/static/EncodeSansSC/EncodeSansSC-Regular.ttf');
+}
+
+.button {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.buttonLoad {
+    border: none;
+    background-image: none;
+    background-color: #83b5a7;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-family: Encode-light;
+    font-size: 16px;
+    height: 50px;
+    width: 300px;
+    border-radius: 32px;
+    cursor: pointer;
+}
+
+.result {
+    width: 98vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card>img {
+    max-width: 600px;
+    max-height: 600px;
+    cursor: pointer;
+}
+
+.username {
+    font-family: Roboto-Regular;
+    opacity: 0.5;
+}

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './header.css'
 import logo from '../img/SearPic-logo.png';
 import Home from './Home';
+import Discover from './Discover';
 
 
 
@@ -34,7 +35,7 @@ const Header = () => {
                 </article>
                 <article>
                     <div className={toggleTabs === 2 ? 'contenu activeContenu' : 'contenu'}>
-                       
+                        <Discover />
                     </div>
                 </article>
                 <article>

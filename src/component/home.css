@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto-Italic;
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Italic.ttf');
+}
+
 .home {
     width: 100vw;
     margin-left: 5rem;
@@ -17,9 +27,9 @@
 .form {
     background: #ffffff;
     height: 55px;
-    width: 550px;
+    width: 35%;
+    margin-left: 5rem;
     display: flex;
-    margin-left: 7rem;
     justify-content: space-between;
     align-items: center;
     border-radius: 48px;
@@ -84,6 +94,7 @@
 }
 
 .username {
+    font-family: Roboto-Regular;
     opacity: 0.5;
 }
 
@@ -113,7 +124,14 @@
 
 .page {
     font-size: 2rem;
+    font-family: Roboto-Italic;
     color: #354b45;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .form {
+        min-width: 350px;
+    }
 }
