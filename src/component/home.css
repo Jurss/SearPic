@@ -85,11 +85,13 @@
 .card {
     margin-left: 6px;
     margin-right: 6px;
+    position: relative;
 }
 
 .card>img {
     max-width: 600px;
     max-height: 600px;
+    display: block;
     cursor: pointer;
 }
 
@@ -128,6 +130,49 @@
     color: #354b45;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+}
+
+.card:hover::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card button {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.card:hover button {
+    opacity: 1;
+}
+
+.download {
+    border: none;
+    background: none;
+    background-color: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.download>img {
+    background: none;
+    height: 48px;
+    width: 48px;
+}
+
+.download>img:hover {
+    height: 52px;
+    width: 52px;
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import downloadImg from '../img/file-removebg-preview.png';
 import './discover.css';
 
 const Discover = () => {
@@ -21,7 +22,9 @@ const Discover = () => {
             <div className="result">
                 {results.map((result) => (
                     <div key={result.id} className="card">
+                        {console.log(result.links.download)}
                         <img className="image" src={result.urls.regular} alt=""></img>
+                        <button className="download"><img src={downloadImg} alt="Download" /></button>
                         <p className="username">Photo by {result.user.name}</p>
                     </div>
                 ))} 

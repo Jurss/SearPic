@@ -4,6 +4,8 @@ import './home.css';
 import glass from '../img/transparent-bg-+-shadow-designify.png';
 import leftArrow from '../img/left-arrow.png';
 import rightArrow from '../img/right-arrow.png';
+import downloadImg from '../img/file-removebg-preview.png';
+
 
 
 const Home = () => {
@@ -53,6 +55,7 @@ const Home = () => {
                         <div key={image.id} className="card">
                             <img src={image.urls.regular} />
                             <p className="username"> Photo by {image.user.name}</p>
+                            <button className="download"><img src={downloadImg} alt="Download" /></button>
                         </div>
                     ))}
 
