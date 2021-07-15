@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: Encode-light;
+    src: url('../fonts/static/EncodeSansSC/EncodeSansSC-Regular.ttf');
+}
+
+.test {
+    background: #f3f5f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    font-family: Encode-light;
+}
+
+.noContent {
+    background: #f3f5f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: Encode-light;
+}
+
+.content {
+    background: #f3f5f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: Encode-light;
+    padding-bottom: 25px;
+    padding-top: 5px;
+    margin-top: 15px;
+}
+
+.name {
+    background: #f3f5f4;
+    color: #83b5a7;
+}
+
+.description {
+    background: #f3f5f4;
+}
+
+.link {
+    text-decoration: underline;
+    background: #f3f5f4;
+}

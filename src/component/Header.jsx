@@ -6,6 +6,7 @@ import Discover from './Discover';
 
 
 
+
 const Header = () => {
 
     const [toggleTabs, setToggleTabs] = useState(1);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import downloadImg from '../img/download.png';
 import './discover.css';
+import Footer from './Footer';
 
 const Discover = () => {
     const clientId = "GcWAxrmZevZukPhphJOTcN-Dvz0U_yYaxaa48dP0BIc";
@@ -62,6 +63,9 @@ const Discover = () => {
             <div className="button">
                     <button className="buttonLoad" onClick={handleSubmit}>Show Me a random photos</button>
             </div>
+            {results.length === 0 && 
+                    <Footer display={'noContent'}/>
+            }
             <div className="result">
                 {results.map((result) => (
                     <div key={result.id} className="card">
@@ -71,11 +75,16 @@ const Discover = () => {
                     </div>
                 ))} 
             </div>
-            <div className="button">
+
                 {results.length !== 0 &&
-                    <button className="buttonLoad" onClick={handleSubmit}>Still again</button>
+                <>
+                    <div className="button">
+                        <button className="buttonLoad" onClick={handleSubmit}>Still again</button>
+                    </div>
+                    <Footer display={'content'}/>
+                </>
                 }
-            </div>
+
         </div>
     )
 };

@@ -5,6 +5,7 @@ import glass from '../img/transparent-bg-+-shadow-designify.png';
 import leftArrow from '../img/left-arrow.png';
 import rightArrow from '../img/right-arrow.png';
 import downloadImg from '../img/download.png';
+import Footer from './Footer';
 
 
 
@@ -93,7 +94,10 @@ const Home = () => {
                 <div className="form">
                     <input className="inputForm" onChange={handleChange} type="text" name="image" placeholder="Search for images ..."/>
                     <button className="buttonForm" onClick={handleSubmit} type="submit"><img className="loupe" src={glass} alt="magnifying glass" /></button>
-                </div>  
+                </div>
+                {result.length === 0 && 
+                    <Footer display={'noContent'}/>
+                }
     
                 <div className="result">
                     {result.map((image) => (
@@ -106,15 +110,18 @@ const Home = () => {
                     ))}
 
                 </div>
-                    <div className="nextPrevButton">
-                        {result.length !== 0 &&
-                        <>
-                                <button  onClick={prevPage} type="submit"><img className="arrow" src={leftArrow} alt="left Arrow" /></button>
-                                <p className="page">{inProgress > 0 ? inProgress : '1'}</p>
-                                <button onClick={nextPage} type="submit"><img className="arrow" src={rightArrow} alt="right Arrow" /></button>
+
+                    {result.length !== 0 &&
+                    <>
+                        <div className="nextPrevButton">
+                            <button  onClick={prevPage} type="submit"><img className="arrow" src={leftArrow} alt="left Arrow" /></button>
+                            <p className="page">{inProgress > 0 ? inProgress : '1'}</p>
+                            <button onClick={nextPage} type="submit"><img className="arrow" src={rightArrow} alt="right Arrow" /></button>
+                        </div>
+                        <Footer display={'content'}/>
                         </>
-                        }
-                    </div>
+                    }
+
             </div>
     )
 }
