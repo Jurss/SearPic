@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './footer.css';
-import logo from '../img/SearPic-logo.png';
 
 const Footer = (display) => {
     return (
@@ -9,7 +8,7 @@ const Footer = (display) => {
             <p className="name">SearPic</p>
             <p className="description">Search for a photo and download it with the unsplash API.</p>
             <p><i className="description">Website made with React.js</i></p>
-            <a className="link" href="https://github.com/Jurss">My Github</a>
+            <a className="link" href="https://github.com/Jurss" target="blank">My Github</a>
         </footer>
     )
 };

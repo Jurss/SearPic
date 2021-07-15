@@ -52,6 +52,11 @@
     opacity: 0.5;
 }
 
+a {
+    color: unset;
+    text-decoration: underline;
+}
+
 .card {
     position: relative;
 }

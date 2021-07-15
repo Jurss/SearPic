@@ -71,7 +71,7 @@ const Discover = () => {
                     <div key={result.id} className="card">
                         <img className="image" src={result.urls.regular} alt={result.alt_description}  title={result.links.html}></img>
                         <button className="download" onClick={() => handleDownload(result.urls.full, result.id, result.links.download_location)} type="submit"><img src={downloadImg} alt="Download" /></button>
-                        <p className="username">Photo by {result.user.name}</p>
+                        <p className="username"> Photo by <i>{result.user.name}</i> On <a href="https://unsplash.com/" target="blank">unsplash</a></p>
                     </div>
                 ))} 
             </div>

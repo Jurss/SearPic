@@ -23,7 +23,6 @@ const Header = () => {
                 <ul className="navBar">
                     <li className={toggleTabs === 1 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(1)}><p>Home</p></li>
                     <li className={toggleTabs === 2 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(2)}><p>Discover</p></li>
-                    <li className={toggleTabs === 3 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(3)}><p>Photographer</p></li>
                 </ul>
             </nav>
         </header>
@@ -37,11 +36,6 @@ const Header = () => {
                 <article>
                     <div className={toggleTabs === 2 ? 'contenu activeContenu' : 'contenu'}>
                         <Discover />
-                    </div>
-                </article>
-                <article>
-                    <div className={toggleTabs === 3 ? 'contenu activeContenu' : 'contenu'}>
-                        <h2>Test3</h2>
                     </div>
                 </article>
             </div>

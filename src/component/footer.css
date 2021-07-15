@@ -27,6 +27,9 @@
     bottom: 0;
     width: 100%;
     font-family: Encode-light;
+    padding-bottom: 25px;
+    padding-top: 5px;
+    margin-top: 15px;
 }
 
 .content {
