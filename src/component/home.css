@@ -45,6 +45,7 @@
     font-size: 1.5rem;
     opacity: 0.5;
     margin-left: 30px;
+    width: 80%;
 }
 
 .inputForm:focus {
@@ -180,8 +181,77 @@ a {
     width: 52px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 450px) {
+    .home {
+        margin-left: 1.5rem;
+    }
+    .home>h1 {
+        font-size: 1.8rem;
+    }
+    .home>p {
+        font-size: 1rem;
+    }
     .form {
-        min-width: 350px;
+        margin-left: 1.5rem;
+        width: 85%;
+    }
+    .inputForm {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .home {
+        margin-left: 1.5rem;
+    }
+    .home>h1 {
+        font-size: 2.1rem;
+    }
+    .home>p {
+        font-size: 1.3rem;
+    }
+    .form {
+        margin-left: 1.5rem;
+        width: 85%;
+    }
+    .inputForm {
+        font-size: 1.3rem;
+        width: 80%;
+    }
+    .card>img {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .home {
+        margin-left: 1.5rem;
+    }
+    .home>h1 {
+        font-size: 2.1rem;
+    }
+    .home>p {
+        font-size: 1.3rem;
+    }
+    .form {
+        margin-left: 1.5rem;
+        width: 65%;
+    }
+    .inputForm {
+        font-size: 1.3rem;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    .card>img {
+        height: 250px;
+        width: 250px;
+    }
+    .loupe {
+        max-height: 424px;
+        max-width: 24px;
     }
 }

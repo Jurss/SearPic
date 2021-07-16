@@ -8,16 +8,6 @@
     src: url('../fonts/static/EncodeSansSC/EncodeSansSC-Regular.ttf');
 }
 
-.test {
-    background: #f3f5f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    bottom: 0;
-    width: 100%;
-    font-family: Encode-light;
-}
-
 .noContent {
     background: #f3f5f4;
     display: flex;
@@ -49,11 +39,24 @@
     color: #83b5a7;
 }
 
-.description {
+.description,
+.made {
     background: #f3f5f4;
 }
 
 .link {
     text-decoration: underline;
     background: #f3f5f4;
+}
+
+@media screen and (max-width: 480px) {
+    .noContent {
+        margin-top: 40px;
+        position: unset;
+    }
+    .description {
+        margin-top: -10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }

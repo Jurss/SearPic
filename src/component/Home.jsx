@@ -102,7 +102,6 @@ const Home = () => {
                 <div className="result">
                     {result.map((image) => (
                         <div key={image.id} className="card">
-                            {console.log(image)}
                             <img src={image.urls.regular}alt={image.alt_description} title={image.links.html}/>
                             <button className="download" onClick={() => handleDownload(image.urls.full, image.id, image.links.download_location)} type="submit"><img src={downloadImg} alt="Download" /></button>
                             <p className="username"> Photo by <i>{image.user.name}</i> On <a href="https://unsplash.com/" target="blank">unsplash</a></p>

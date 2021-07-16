@@ -53,3 +53,24 @@
 main {
     overflow-x: hidden;
 }
+
+@media screen and (max-width: 480px) {
+    .head {
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo {
+        margin-left: unset;
+        height: 150px;
+        width: 150px;
+    }
+    .navBar {
+        margin-top: -30px;
+    }
+    nav {
+        height: 70px;
+    }
+}
