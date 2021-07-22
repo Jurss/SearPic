@@ -50,6 +50,14 @@
     color: #83b5a7;
 }
 
+.tabs {
+    margin-left: 20px;
+}
+
+.link {
+    text-decoration: none;
+}
+
 main {
     overflow-x: hidden;
 }

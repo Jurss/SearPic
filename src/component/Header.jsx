@@ -3,6 +3,7 @@ import './header.css'
 import logo from '../img/SearPic-logo.png';
 import Home from './Home';
 import Discover from './Discover';
+import { Link } from 'react-router-dom';
 
 
 
@@ -21,8 +22,12 @@ const Header = () => {
             <img className="logo" src={logo} alt="logo"></img>
             <nav>
                 <ul className="navBar">
-                    <li className={toggleTabs === 1 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(1)}><p>Home</p></li>
-                    <li className={toggleTabs === 2 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(2)}><p>Discover</p></li>
+                    <Link to="/" className="link">
+                        <li className={toggleTabs === 1 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(1)}><p>Home</p></li>
+                    </Link>
+                    <Link to="/Discover" className="link">
+                        <li className={toggleTabs === 2 ? 'tabs activeTabs' : 'tabs'} onClick={() => toggleTab(2)}><p>Discover</p></li>
+                    </Link>
                 </ul>
             </nav>
         </header>

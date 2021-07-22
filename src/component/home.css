@@ -254,4 +254,22 @@ a {
         max-height: 424px;
         max-width: 24px;
     }
+    .form {
+        width: 90%;
+        margin-left: 0rem;
+    }
+}
+
+@media screen and (max-width: 255px) {
+    .card>img {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 205px) {
+    .card>img {
+        height: 150px;
+        width: 150px;
+    }
 }

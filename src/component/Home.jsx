@@ -5,7 +5,6 @@ import glass from '../img/transparent-bg-+-shadow-designify.png';
 import leftArrow from '../img/left-arrow.png';
 import rightArrow from '../img/right-arrow.png';
 import downloadImg from '../img/download.png';
-import Footer from './Footer';
 
 
 
@@ -92,12 +91,10 @@ const Home = () => {
                     <p>Place where amazing photo from great photographer</p>
                 </div>
                 <div className="form">
-                    <input className="inputForm" onChange={handleChange} type="text" name="image" placeholder="Search for images ..."/>
+                    <input className="inputForm" onChange={handleChange} type="text" name="image" placeholder="Search"/>
                     <button className="buttonForm" onClick={handleSubmit} type="submit"><img className="loupe" src={glass} alt="magnifying glass" /></button>
                 </div>
-                {result.length === 0 && 
-                    <Footer display={'noContent'}/>
-                }
+
     
                 <div className="result">
                     {result.map((image) => (
@@ -107,20 +104,15 @@ const Home = () => {
                             <p className="username"> Photo by <i>{image.user.name}</i> On <a href="https://unsplash.com/" target="blank">unsplash</a></p>
                         </div>
                     ))}
-
                 </div>
 
-                    {result.length !== 0 &&
-                    <>
-                        <div className="nextPrevButton">
-                            <button  onClick={prevPage} type="submit"><img className="arrow" src={leftArrow} alt="left Arrow" /></button>
-                            <p className="page">{inProgress > 0 ? inProgress : '1'}</p>
-                            <button onClick={nextPage} type="submit"><img className="arrow" src={rightArrow} alt="right Arrow" /></button>
-                        </div>
-                        <Footer display={'content'}/>
-                        </>
-                    }
-
+                {result.length !== 0 &&
+                    <div className="nextPrevButton">
+                        <button  onClick={prevPage} type="submit"><img className="arrow" src={leftArrow} alt="left Arrow" /></button>
+                        <p className="page">{inProgress > 0 ? inProgress : '1'}</p>
+                        <button onClick={nextPage} type="submit"><img className="arrow" src={rightArrow} alt="right Arrow" /></button>
+                    </div>
+                }
             </div>
     )
 }
